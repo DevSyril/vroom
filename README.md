@@ -49,7 +49,7 @@ Pour le détail complet des parcours utilisateurs et des règles de gestion par 
 
 ### 1. Cloner et installer
 ```bash
-git clone <votre-repo>
+git clone https://github.com/DevSyril/vroom.git
 cd vroom
 npm install
 ```
