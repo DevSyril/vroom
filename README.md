@@ -71,7 +71,43 @@ NEXTAUTH_URL="http://localhost:3000"
 ```
 
 ### 3. Base de Données
-Initialisez la base de données et injectez les données de test (utilisateurs, véhicules) :
+Initialisez la base de données et injectez les données de test (utilisateurs, véhicules).
+
+#### 3.1 Installation de PostgreSQL & pgAdmin
+
+Si vous n'avez pas encore PostgreSQL, suivez ces instructions selon votre OS :
+
+**Windows :**
+1.  Téléchargez l'installateur sur [postgresq.org/download/windows](https://www.postgresql.org/download/windows/).
+2.  Lancez l'installation et assurez-vous de cocher **pgAdmin 4** et **Command Line Tools**.
+3.  Définissez un mot de passe pour le superutilisateur `postgres` (notez-le, ex: `root`).
+4.  Une fois installé, ouvrez **pgAdmin 4** ou **SQL Shell (psql)**.
+
+**macOS :**
+- Via [Postgres.app](https://postgresapp.com/) (le plus simple) ou Homebrew : `brew install postgresql`
+- Pour l'interface graphique, téléchargez [pgAdmin 4](https://www.pgadmin.org/download/pgadmin-4-macos/).
+
+**Linux (Ubuntu/Debian) :**
+```bash
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'votre_mot_de_passe';"
+```
+
+#### 3.2 Création de la Base de Données
+Ouvrez un terminal ou SQL Shell et exécutez :
+
+```sql
+-- Connectez-vous à postgres
+-- create database vroom_db;
+CREATE DATABASE vroom_db;
+```
+
+Assurez-vous que votre fichier `.env` correspond à votre configuration (mot de passe et nom de base).
+
+#### 3.3 Initialisation du Schéma et Données
+Une fois la base créée, lancez :
+
 
 ```bash
 # Générer le client Prisma
